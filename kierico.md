@@ -16,3 +16,17 @@
 
     Se quiser `npx tsc`, para converter o código de TS para JS.
 
+### #1.6 Build do pacote com TSUP
+
+<!-- Agora vamos entender o que é o TSUP e como configurar ele para converter nosso código de TS para JS. -->
+
+[TSUP](https://github.com/egoist/tsup)
+
+#### Na pasta `tokens`:
+
+- `npm i tsup -D`
+
+- `npm run build`
+
+- `npm run dev`
+
