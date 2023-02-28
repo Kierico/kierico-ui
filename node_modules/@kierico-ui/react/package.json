@@ -1,5 +1,5 @@
 {
-  "name": "@kierico-ui/tokens",
+  "name": "@kierico-ui/react",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@kierico-ui/tokens": "*",
     "tsup": "^6.6.3",
     "typescript": "^4.9.5"
   }
