@@ -16,6 +16,8 @@
 
     Se quiser `npx tsc`, para converter o código de TS para JS.
 
+<br/><hr/><br/>
+
 ### #1.6 Build do pacote com TSUP
 
 <!-- Agora vamos entender o que é o TSUP e como configurar ele para converter nosso código de TS para JS. -->
@@ -26,7 +28,18 @@
 
 - `npm i tsup -D`
 
+**<img src="imgMd\1.6.png">**
+
+```json
+"scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch"
+  },
+```
+
 - `npm run build`
 
 - `npm run dev`
+
+<br/><hr/><br/>
 
