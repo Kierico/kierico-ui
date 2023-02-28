@@ -151,3 +151,123 @@ Na pasta `tokens`:
 
 <br/><hr/><br/>
 
+### #1.7 Configuração do TypeScript
+
+Na pasta `packages`:
+
+Criar uma pasta 'ts-config'.
+
+**<img src="imgMd\1.8.0ts-config.png">**
+
+- `npm init -y`
+
+**<img src="imgMd\1.8.1package-jsonTs-config.png">**
+
+```json
+{
+  /** package.json */
+  "name": "@kierico-ui/ts-config",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true
+}
+```
+
+Em 'packages/**ts-config'**, criar um arquivo `base.json`. Que é a configuração base do Typescript.
+
+**<img src="imgMd\1.8.2base-json.png">**
+
+```json
+{
+  /** base.json */
+  "compilerOptions": {
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": false,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "exclude": ["node_modules"]
+}
+```
+
+E na mesma pasta 'packages/**ts-config'**, criar um arquivo `react.json`.
+
+**<img src="imgMd\1.8.3react-json.png">**
+
+```json
+{
+  /** react.json */
+  "extends": "./base.json",
+  "compilerOptions": {
+      "jsx": "react-jsx",
+      "lib": [
+          "dom",
+          "ES2015"
+      ],
+      "module": "ESNext",
+      "target": "es6"
+  }
+}
+```
+
+E no arquivo `package-json` de 'react' e 'tokens':
+
+**<img src="imgMd\1.8.4package-jsonReact&Tokens.png">**
+
+```json
+/** em ambos os arquivos add */
+"devDependencies": {
+  "@kierico-ui/ts-config": "*",
+}
+```
+
+Na raiz:
+
+**<img src="imgMd\1.8.5raiz.png">**
+
+- `npm i`
+
+No arquivo `tsconfig-json` na pasta 'tokens':
+
+**<img src="imgMd\1.8.6tsconfig-jsonTokens.png">**
+
+```json
+{
+  /** tsconfig.json */
+  "extends": "@kierico-ui/ts-config/base.json",
+  "include": [
+    "src"
+  ],
+  // "exclude": []
+}
+```
+
+E fazer a mesma coisa para o pacote 'react':
+
+**<img src="imgMd\1.8.7tsconfig-jsonReact.png">**
+
+```json
+{
+    "extends": "@kierico-ui/ts-config/react.json",
+    "include": [
+        "src"
+    ],
+    // "exclude": []
+}
+```
+
+Na raiz:
+
+**<img src="imgMd\1.8.5raiz.png">**
+
+- `npm i`
+
