@@ -147,7 +147,9 @@ Na pasta `tokens`:
 
 - `npm run build`
 
-> OBS: Aqui pode está gerando algum erro, pois as tipagens do Typescript ainda vão ser configuradas.
+> Se `npm run build` estiver dando erro, é só atualizar o 'NodeJS' para a versão LTS mais atual (v18.14.2 atual em 28/02/2023).
+
+    OBS: Aqui pode está gerando algum erro, pois as tipagens do Typescript ainda vão ser configuradas.
 
 <br/><hr/><br/>
 
