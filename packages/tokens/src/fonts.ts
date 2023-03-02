@@ -1,6 +1,6 @@
 /** fonts.ts */
 export const fonts = {
   default: 'Roboto, sans-serif',
-  //heading: '',
+  // heading: '',
   code: 'monospace',
 }

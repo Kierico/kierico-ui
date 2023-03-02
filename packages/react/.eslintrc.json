@@ -1,0 +1,3 @@
+{
+    "extends": "@kierico-ui/eslint-config"
+}

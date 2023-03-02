@@ -4,7 +4,7 @@
 
 ### #1.4 Criando pacote de tokens
 
-**<img src="imgMd\1.4criandoPacoteDeTokens.png">**
+**<img src="imgMd/1.4criandoPacoteDeTokens.png">**
 
 #### Na pasta `tokens`:
 
@@ -28,7 +28,7 @@
 
 - `npm i tsup -D`
 
-**<img src="imgMd\1.6buildDoPacoteComTSUP.png">**
+**<img src="imgMd/1.6buildDoPacoteComTSUP.png">**
 
 ```json
 "scripts": {
@@ -45,7 +45,7 @@
 
 ### #1.7 Configurando Monorepo
 
-**<img src="imgMd\1.7.0configurandoMonorepo.png">**
+**<img src="imgMd/1.7.0configurandoMonorepo.png">**
 
 #### Na pasta `react`:
 
@@ -55,7 +55,7 @@
 
 - `npm i tsup -D`
 
-**<img src="imgMd\1.7.1package-jsonReact.png">**
+**<img src="imgMd/1.7.1package-jsonReact.png">**
 
 ```json
 "name": "@kierico-ui/react",
@@ -70,11 +70,11 @@
 
 #### Na raiz ( cd .. cd .. )
 
-**<img src="imgMd\1.7.2raiz.png">**
+**<img src="imgMd/1.7.2raiz.png">**
 
 - `npm init -y`
 
-**<img src="imgMd\1.7.3package-jsonGlobal.png">**
+**<img src="imgMd/1.7.3package-jsonGlobal.png">**
 
 apagar tudo e reescrever:
 
@@ -92,7 +92,7 @@ apagar tudo e reescrever:
 
 ***Excluir*** o arquivo *`package-lock.json`* das pastas '**react**' e '**tokens**'.
 
-**<img src="imgMd\1.7.4package-jsonReact.png">**
+**<img src="imgMd/1.7.4package-jsonReact.png">**
 
 ```json
 "devDependencies": {
@@ -104,11 +104,11 @@ apagar tudo e reescrever:
 
 Na raiz:
 
-**<img src="imgMd\1.7.5raiz.png">**
+**<img src="imgMd/1.7.5raiz.png">**
 
 - `npm i`
 
-**<img src="imgMd\1.7.6package-jsonTokens.png">**
+**<img src="imgMd/1.7.6package-jsonTokens.png">**
 
 ```json
 {
@@ -122,7 +122,7 @@ Na raiz:
 }
 ```
 
-**<img src="imgMd\1.7.7package-jsonReact.png">**
+**<img src="imgMd/1.7.7package-jsonReact.png">**
 
 ```json
 {
@@ -137,13 +137,13 @@ Na raiz:
 ```
 Na raiz:
 
-**<img src="imgMd\1.7.8raiz.png">**
+**<img src="imgMd/1.7.8raiz.png">**
 
 - `npm i`
 
 Na pasta `tokens`:
 
-**<img src="imgMd\1.7.9tokens.png">**
+**<img src="imgMd/1.7.9tokens.png">**
 
 - `npm run build`
 
@@ -159,11 +159,11 @@ Na pasta `packages`:
 
 Criar uma pasta 'ts-config'.
 
-**<img src="imgMd\1.8.0ts-config.png">**
+**<img src="imgMd/1.8.0ts-config.png">**
 
 - `npm init -y`
 
-**<img src="imgMd\1.8.1package-jsonTs-config.png">**
+**<img src="imgMd/1.8.1package-jsonTs-config.png">**
 
 ```json
 {
@@ -177,7 +177,7 @@ Criar uma pasta 'ts-config'.
 
 Em 'packages/**ts-config'**, criar um arquivo `base.json`. Que é a configuração base do Typescript.
 
-**<img src="imgMd\1.8.2base-json.png">**
+**<img src="imgMd/1.8.2base-json.png">**
 
 ```json
 {
@@ -203,7 +203,7 @@ Em 'packages/**ts-config'**, criar um arquivo `base.json`. Que é a configuraç�
 
 E na mesma pasta 'packages/**ts-config'**, criar um arquivo `react.json`.
 
-**<img src="imgMd\1.8.3react-json.png">**
+**<img src="imgMd/1.8.3react-json.png">**
 
 ```json
 {
@@ -223,7 +223,7 @@ E na mesma pasta 'packages/**ts-config'**, criar um arquivo `react.json`.
 
 E no arquivo `package-json` de 'react' e 'tokens':
 
-**<img src="imgMd\1.8.4package-jsonReact&Tokens.png">**
+**<img src="imgMd/1.8.4package-jsonReact&Tokens.png">**
 
 ```json
 /** em ambos os arquivos add */
@@ -234,13 +234,13 @@ E no arquivo `package-json` de 'react' e 'tokens':
 
 Na raiz:
 
-**<img src="imgMd\1.8.5raiz.png">**
+**<img src="imgMd/1.8.5raiz.png">**
 
 - `npm i`
 
 No arquivo `tsconfig-json` na pasta 'tokens':
 
-**<img src="imgMd\1.8.6tsconfig-jsonTokens.png">**
+**<img src="imgMd/1.8.6tsconfig-jsonTokens.png">**
 
 ```json
 {
@@ -255,7 +255,7 @@ No arquivo `tsconfig-json` na pasta 'tokens':
 
 E fazer a mesma coisa para o pacote 'react':
 
-**<img src="imgMd\1.8.7tsconfig-jsonReact.png">**
+**<img src="imgMd/1.8.7tsconfig-jsonReact.png">**
 
 ```json
 {
@@ -269,7 +269,104 @@ E fazer a mesma coisa para o pacote 'react':
 
 Na raiz:
 
-**<img src="imgMd\1.8.5raiz.png">**
+**<img src="imgMd/1.8.5raiz.png">**
 
 - `npm i`
+
+<br/><hr/><br/>
+
+### #1.9 Configuração do ESLint
+
+Na pasta `packages`, criar uma pasta `eslint-config`.
+
+**<img src="imgMd/1.9.0eslint-config.png">**
+
+- `npm init -y`
+
+No 'package-json':
+
+**<img src="imgMd/1.9.1package-jsonEslint-config.png">**
+
+```json
+{
+  /** eslint-config/package.json */
+  "name": "@kierico-ui/eslint-config",
+  "license": "MIT",
+  "private": true,
+  "main": "index.js"
+}
+```
+
+Na pasta 'eslint-config':
+
+**<img src="imgMd/1.9.0eslint-config.png">**
+
+- `npm i -D eslint @rocketseat/eslint-config`
+
+**`SE DER ERRO:`--->**
+
+**<img src="imgMd/1.9.3npmWarnWorkspaces.png">**
+
+**`TENTE DE NOVO SE DER ERRO!`<---**
+
+No arquivo 'index.js' na pasta 'eslint-config':
+
+**<img src="imgMd/1.9.2indexEslint-config.png">**
+
+```js
+/** eslint-config/index.js */
+module.exports = {
+  extends: ["@rocketseat/eslint-config/react"]
+}
+```
+
+No arquivo 'package.json' nas pastas 'react' e 'tokens':
+
+**<img src="imgMd/1.9.4package-jsonEslint-config.png">**
+
+```json
+/** react/package.json & tokens/package.json*/
+"devDependencies": {
+  "@kierico-ui/tokens": "*",
+  "@kierico-ui/ts-config": "*",
+  "@kierico-ui/eslint-config": "*", // <--
+  "tsup": "^6.6.3",
+  "typescript": "^4.9.5"
+}
+```
+
+Criar um arquivo `.eslintrc.json` nas pastas 'react' e 'tokens':
+
+**<img src="imgMd/1.9.5eslintrc-jsonReact&Tokens.png">**
+
+```json
+{
+  /** react/eslintrc.json & tokens/eslintrc.json */
+  "extends": "@kierico-ui/eslint-config"
+}
+```
+
+Nos arquivos `package.json` das pastas 'react' e 'tokens':
+
+**<img src="imgMd/1.9.6package-jsonReact&Tokens.png">**
+
+```json
+/** react/package.json & tokens/package.json*/
+"scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "lint": "eslint src/**/*.ts* --fix" // <--
+  },
+  ```
+Nos pacotes 'tokens' e 'react', rodar:
+
+**<img src="imgMd/1.9.7lintReact&Tokens.png">**
+
+- `npm run lint`.
+
+      Warning: React version was set to "detect" in eslint-plugin-react settings, but the "react" package is not installed. Assuming latest React version for linting.
+  
+  > Tudo bem porque não temos o pacote React instalado!
+
+<br/><hr/><br/>
 
