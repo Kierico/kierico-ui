@@ -368,5 +368,46 @@ Nos pacotes 'tokens' e 'react', rodar:
   
   > Tudo bem porque não temos o pacote React instalado!
 
+<br/><hr/><hr/><br/>
+
+## #02 Disign System em React
+
+### #2.1 Configurando pacote do React
+
+No pacote 'react':
+
+**<img src="imgMd/2.1.0pacoteReact.png">**
+
+- `npm i -D react @types/react @types/react-dom`
+
+> OBS: Instalar o React em ambiente de desenvolvimento "-D", para não pesar e duplicar a aplicação.
+
+No arquivo `package.json` do pacote 'react':
+
+**<img src="imgMd/2.1.1package-jsonReact.png">**
+
+**<img src="imgMd/2.1.2index-tsxSrcReact.png">**
+
+`--external react` adicionar nos scripts: "build" e "dev", para importar o React da aplicação hospedeira.
+
+E mudar as extensões do arquivo 'index.js' para '`index.tsx`' na pasta 'react', e no arquivo 'package.json' também.
+
+```json
+/** react/package.json */
+"scripts": {
+  "build": "tsup src/index.tsx --format esm,cjs --dts --external react", // <--
+  "dev": "tsup src/index.tsx --format esm,cjs --dts --external react --watch", // <--
+  "lint": "eslint src/**/*.ts* --fix"
+},
+```
+
+No pacote 'react' rodar:
+
+**<img src="imgMd/2.1.0pacoteReact.png">**
+
+- `npm run build`
+
+> `Agora é só criar os componentes no 'react'.`
+
 <br/><hr/><br/>
 
