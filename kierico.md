@@ -88,9 +88,9 @@ apagar tudo e reescrever:
 }
 ```
 
-***Excluir*** a pasta *`node_modules`* das pastas '**react**' e '**tokens**'.
+***Excluir*** a pasta *`node_modules`* das pastas '**`react`**' e '**`tokens`**'.
 
-***Excluir*** o arquivo *`package-lock.json`* das pastas '**react**' e '**tokens**'.
+***Excluir*** o arquivo *`package-lock.json`* das pastas '**`react`**' e '**`tokens`**'.
 
 **<img src="imgMd/1.7.4package-jsonReact.png">**
 
@@ -102,7 +102,7 @@ apagar tudo e reescrever:
 }
 ```
 
-Na raiz:
+#### Na raiz:
 
 **<img src="imgMd/1.7.5raiz.png">**
 
@@ -135,13 +135,13 @@ Na raiz:
   "scripts": {"..."}
 }
 ```
-Na raiz:
+#### Na raiz:
 
 **<img src="imgMd/1.7.8raiz.png">**
 
 - `npm i`
 
-Na pasta `tokens`:
+#### Na pasta `tokens`:
 
 **<img src="imgMd/1.7.9tokens.png">**
 
@@ -155,9 +155,9 @@ Na pasta `tokens`:
 
 ### #1.7 Configuração do TypeScript
 
-Na pasta `packages`:
+#### Na pasta `packages`:
 
-Criar uma pasta 'ts-config'.
+Criar uma pasta '`ts-config`'.
 
 **<img src="imgMd/1.8.0ts-config.png">**
 
@@ -175,7 +175,7 @@ Criar uma pasta 'ts-config'.
 }
 ```
 
-Em 'packages/**ts-config'**, criar um arquivo `base.json`. Que é a configuração base do Typescript.
+#### Em '`packages/ts-config`', criar um arquivo `base.json`. Que é a configuração base do Typescript.
 
 **<img src="imgMd/1.8.2base-json.png">**
 
@@ -201,7 +201,7 @@ Em 'packages/**ts-config'**, criar um arquivo `base.json`. Que é a configuraç�
 }
 ```
 
-E na mesma pasta 'packages/**ts-config'**, criar um arquivo `react.json`.
+#### E na mesma pasta '`packages/**`ts-config`**`', criar um arquivo `react.json`.
 
 **<img src="imgMd/1.8.3react-json.png">**
 
@@ -221,7 +221,7 @@ E na mesma pasta 'packages/**ts-config'**, criar um arquivo `react.json`.
 }
 ```
 
-E no arquivo `package-json` de 'react' e 'tokens':
+#### E no arquivo `package-json` de '`react`' e '`tokens`':
 
 **<img src="imgMd/1.8.4package-jsonReact&Tokens.png">**
 
@@ -232,13 +232,13 @@ E no arquivo `package-json` de 'react' e 'tokens':
 }
 ```
 
-Na raiz:
+#### Na raiz:
 
 **<img src="imgMd/1.8.5raiz.png">**
 
 - `npm i`
 
-No arquivo `tsconfig-json` na pasta 'tokens':
+#### No arquivo `tsconfig-json` na pasta '`tokens`':
 
 **<img src="imgMd/1.8.6tsconfig-jsonTokens.png">**
 
@@ -253,7 +253,7 @@ No arquivo `tsconfig-json` na pasta 'tokens':
 }
 ```
 
-E fazer a mesma coisa para o pacote 'react':
+#### E fazer a mesma coisa para o pacote '`react`':
 
 **<img src="imgMd/1.8.7tsconfig-jsonReact.png">**
 
@@ -267,7 +267,7 @@ E fazer a mesma coisa para o pacote 'react':
 }
 ```
 
-Na raiz:
+#### Na raiz:
 
 **<img src="imgMd/1.8.5raiz.png">**
 
@@ -277,13 +277,13 @@ Na raiz:
 
 ### #1.9 Configuração do ESLint
 
-Na pasta `packages`, criar uma pasta `eslint-config`.
+#### Na pasta `packages`, criar uma pasta `eslint-config`.
 
 **<img src="imgMd/1.9.0eslint-config.png">**
 
 - `npm init -y`
 
-No 'package-json':
+#### No '`package-json`':
 
 **<img src="imgMd/1.9.1package-jsonEslint-config.png">**
 
@@ -297,7 +297,7 @@ No 'package-json':
 }
 ```
 
-Na pasta 'eslint-config':
+#### Na pasta '`eslint-config`':
 
 **<img src="imgMd/1.9.0eslint-config.png">**
 
@@ -309,7 +309,7 @@ Na pasta 'eslint-config':
 
 **`TENTE DE NOVO SE DER ERRO!`<---**
 
-No arquivo 'index.js' na pasta 'eslint-config':
+#### No arquivo '`index.js`' na pasta '`eslint-config`':
 
 **<img src="imgMd/1.9.2indexEslint-config.png">**
 
@@ -320,7 +320,7 @@ module.exports = {
 }
 ```
 
-No arquivo 'package.json' nas pastas 'react' e 'tokens':
+#### No arquivo '`package.json`' nas pastas '`react`' e '`tokens`':
 
 **<img src="imgMd/1.9.4package-jsonEslint-config.png">**
 
@@ -335,7 +335,7 @@ No arquivo 'package.json' nas pastas 'react' e 'tokens':
 }
 ```
 
-Criar um arquivo `.eslintrc.json` nas pastas 'react' e 'tokens':
+#### Criar um arquivo `.eslintrc.json` nas pastas '`react`' e '`tokens`':
 
 **<img src="imgMd/1.9.5eslintrc-jsonReact&Tokens.png">**
 
@@ -346,7 +346,7 @@ Criar um arquivo `.eslintrc.json` nas pastas 'react' e 'tokens':
 }
 ```
 
-Nos arquivos `package.json` das pastas 'react' e 'tokens':
+#### Nos arquivos `package.json` das pastas '`react`' e '`tokens`':
 
 **<img src="imgMd/1.9.6package-jsonReact&Tokens.png">**
 
@@ -358,7 +358,7 @@ Nos arquivos `package.json` das pastas 'react' e 'tokens':
     "lint": "eslint src/**/*.ts* --fix" // <--
   },
   ```
-Nos pacotes 'tokens' e 'react', rodar:
+#### Nos pacotes '`tokens`' e '`react`', rodar:
 
 **<img src="imgMd/1.9.7lintReact&Tokens.png">**
 
@@ -374,7 +374,7 @@ Nos pacotes 'tokens' e 'react', rodar:
 
 ### #2.1 Configurando pacote do React
 
-No pacote 'react':
+#### No pacote '`react`':
 
 **<img src="imgMd/2.1.0pacoteReact.png">**
 
@@ -382,7 +382,7 @@ No pacote 'react':
 
 > OBS: Instalar o React em ambiente de desenvolvimento "-D", para não pesar e duplicar a aplicação.
 
-No arquivo `package.json` do pacote 'react':
+#### No arquivo `package.json` do pacote 'react':
 
 **<img src="imgMd/2.1.1package-jsonReact.png">**
 
@@ -401,7 +401,7 @@ E mudar as extensões do arquivo 'index.js' para '`index.tsx`' na pasta 'react',
 },
 ```
 
-No pacote 'react' rodar:
+#### No pacote '`react`' rodar:
 
 **<img src="imgMd/2.1.0pacoteReact.png">**
 
@@ -410,4 +410,66 @@ No pacote 'react' rodar:
 > `Agora é só criar os componentes no 'react'.`
 
 <br/><hr/><br/>
+
+### #2.2 Configuração do Stitches
+
+**[ <img style="background-color: white;" src="imgMd/stitches.svg"> ](https://stitches.dev/)**
+
+#### No pacote '`react`':
+
+**<img src="imgMd/2.1.0pacoteReact.png">**
+
+- `npm i @stitches/react`
+
+#### No pacote '`react`', na pasta '`src`' criar uma pasta '`styles`':
+
+**<img src="imgMd/2.2.0stylesSrcReact.png">**
+
+#### Na pasta '`styles`' criar um arquivo '`index.ts`':
+
+**<img src="imgMd/2.2.1indexStyles.png">**
+
+```ts
+/** react/src/styles/index.ts */
+import {
+  colors,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  radii,
+  space,
+} from '@kierico-ui/tokens'
+
+import { createStitches, defaultThemeMap } from '@stitches/react'
+
+export const {
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  theme,
+  createTheme,
+  config,
+} = createStitches({
+  /** Mapear propriedades do CSS para algum tipo de Token */
+  themeMap: {
+    ...defaultThemeMap,
+    width: 'space',
+    height: 'space',
+  },
+  theme: {
+    colors,
+    fontSizes,
+    fontWeights,
+    fonts,
+    lineHeights,
+    radii,
+    space,
+  },
+})
+```
+
+> Agora é só fazer a importação ( `import { styled } from './styles` ) para criar componentes.
 
