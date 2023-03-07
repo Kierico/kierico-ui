@@ -473,4 +473,11 @@ export const {
 
 > Agora é só fazer a importação ( `import { styled } from './styles` ) para criar componentes.
 
-### #2.3
+### #2.3 Criandok app em Storybook
+
+#### Na pasta '`packages`' criar uma pasta '`docs`':
+
+#### Na pasta '`docs`':
+
+- `npx sb init --builder @storybook/builder-vite --type react --use-npm`
+

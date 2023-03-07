@@ -75,7 +75,7 @@ var fontWeights = {
 // src/fonts.ts
 var fonts = {
   default: "Roboto, sans-serif",
-  //heading: '',
+  // heading: '',
   code: "monospace"
 };
 
