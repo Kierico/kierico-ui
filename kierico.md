@@ -473,3 +473,4 @@ export const {
 
 > Agora é só fazer a importação ( `import { styled } from './styles` ) para criar componentes.
 
+### #2.3
