@@ -481,3 +481,74 @@ export const {
 
 - `npx sb init --builder @storybook/builder-vite --type react --use-npm`
 
+Se der ERRO:
+
+**<img src="imgMd/2.3.0erroPeerDeps.png">**
+
+  Se der o erro de cima, fazer downgrade:
+
+  - [NodeJS](https://nodejs.org/en/download/releases/) para a versão 16.15.0
+
+  - NPM para a versão 8.5.5 `npm install -g npm@8.5.5`
+
+  Se ao rodar `npx sb init --builder @storybook/builder-vite --type react --use-npm` não instalar todas as 'devDependencies', excluir a pasta '`docs`' e rodar novamente `npx sb init --builder @storybook/builder-vite --type react --use-npm`.
+
+#### Ainda no pacote '`docs`':
+
+- `npm i vite @vitejs/plugin-react -D`
+
+Na pasta '`docs`' criar um arquivo `vite.config.js`:
+
+```js
+/** docs/vite.config.js */
+
+/// <reference types="vite/client" />
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()]
+})
+```
+
+Ainda no pacote '`docs`':
+
+- `npm i react react-dom`
+
+No arquivo '`package.json`' do pacote '`docs`':
+
+```json
+/** docs/package.json */
+{
+  "name": "@kierico-ui/docs", // <--
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "start-storybook -p 6006", // <-- alterar para 'dev'
+    "build": "build-storybook" // <-- alterar para 'build'
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT", // <-- ISC
+  "devDependencies": {
+    "@vitejs/plugin-react": "^3.1.0",
+    "vite": "^4.1.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
+```
+
+#### No pacote '`docs`':
+
+- `npm run dev`
+
+  Se der ERRO, excluir a pasta '`node_modules`' das pastas '`docs`' e '`raiz`', e rodar `npm i` na pasta '`docs`'.
+
+- Se der erro no Storybook, rodar '`npm i`' na raiz.
+
