@@ -552,3 +552,5 @@ No arquivo '`package.json`' do pacote '`docs`':
 
 - Se der erro no Storybook, rodar '`npm i`' na raiz.
 
+    > Lembrando que não podemos instalar o Storybook dentro de pasta que tenha o nome com caracteres especiais.
+
