@@ -642,3 +642,32 @@ Para criar a primeira story, importar:
   ```tsx
   import type { StoryObj, Meta } from '@storybook/react'
   ```
+
+<br/><hr/><br/>
+
+### #2.5 Tema Dark no Storybook
+
+#### Na pasta '`.storybook`' em '`docs`', criar um arquivo `manager.js`:
+
+**<img src="imgMd/2.5.0manager-js.png">**
+
+```js
+/** docs/.storybook/manager.js */
+import { addons } from '@storybook/addons'
+import { themes } from '@storybook/theming'
+
+addons.setConfig({
+  theme: themes.dark
+})
+```
+
+Na pasta '`docs`':
+
+  Agora é só encerrar o storybook
+
+  - `Ctrl + C`
+  
+  por para rodar novamente.
+
+  - `npm run dev`
+
