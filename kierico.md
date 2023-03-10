@@ -473,6 +473,8 @@ export const {
 
 > Agora é só fazer a importação ( `import { styled } from './styles` ) para criar componentes.
 
+<br/><hr/><br/>
+
 ### #2.3 Criandok app em Storybook
 
 #### Na pasta '`packages`' criar uma pasta '`docs`':
@@ -552,5 +554,91 @@ No arquivo '`package.json`' do pacote '`docs`':
 
 - Se der erro no Storybook, rodar '`npm i`' na raiz.
 
+  - E se precisar, excluir a pasta '`dist`' dos pacotes '`react`' e '`tokens`', e rodar `npm run dev` nos pacotes `react`e `tokens`.
+
     > Lembrando que não podemos instalar o Storybook dentro de pasta que tenha o nome com caracteres especiais.
 
+<br/><hr/><br/>
+
+### #2.4 Story: Button
+
+#### Na pasta '`docs`', criar uma pasta '`src`' e dentro uma pasta '`stories`':
+
+**<img src="imgMd/2.4.0storiesSrcDocs.png">**
+
+E dentro é só criar as Stories (documentação).
+
+  > Lembrando que as '`stories`' sempre vão ter a extensão `stories.tsx`. Ex: "Button.stories.tsx".
+
+
+#### Em '`docs`', na pasta '`.storybook`' e no arquivo '`main.js`':
+
+**<img src="imgMd/2.4.1main-jsSrotybookDocs.png">**
+
+Adicionar `/src/`:
+
+```js
+/** docs/.storybook/main.js */
+module.exports = {
+  "stories": [
+    "../src/stories/**/*.stories.mdx", // <-- add /src/
+    "../src/stories/**/*.stories.tsx" // <-- add /src/ & /*.stories.@(js|jsx|ts|tsx)
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions"
+  ],
+  "framework": "@storybook/react",
+  "core": {
+    "builder": "@storybook/builder-vite"
+  },
+  "features": {
+    "storyStoreV7": true
+  }
+}
+```
+
+#### Na pasta '`docs`', no arquivo '`package.json`':
+
+**<img src="imgMd/2.4.2package-jsonDocs.png">**
+
+```json
+/** docs/package.json */
+"dependencies": {
+  "@kierico-ui/react": "*", // <--
+  "@kierico-ui/tokens": "*", // <--
+  "@kierico-ui/eslint-config": "*", // <--
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0"
+}
+```
+
+ainda na pasta '`docs`':
+
+- `npm i`
+
+ainda em '`docs`' criar um arquivo '`.eslintrc.json`'.
+
+**<img src="imgMd/2.4.3eslintrc-jsonDocs.png">**
+
+```json
+/** docs/.eslintrc.json */
+{
+    "extends": "@kierico-ui/eslint-config"
+}
+```
+
+Agora, no stories 'Button.stories.tsx' é só importar os 'componentes' de 'react'.
+  
+  ex:
+  
+  ```tsx
+  import { Button } from '@kierico-ui/react`
+  ```
+
+Para criar a primeira story, importar:
+
+  ```tsx
+  import type { StoryObj, Meta } from '@storybook/react'
+  ```
