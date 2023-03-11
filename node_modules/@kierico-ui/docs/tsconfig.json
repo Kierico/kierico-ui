@@ -1,0 +1,7 @@
+{
+  "extends": "@kierico-ui/ts-config/react.json",
+  "include": [
+    "src"
+  ],
+  // "exclude": []
+}

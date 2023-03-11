@@ -201,7 +201,7 @@ Criar uma pasta '`ts-config`'.
 }
 ```
 
-#### E na mesma pasta '`packages/**`ts-config`**`', criar um arquivo `react.json`.
+#### E na mesma pasta '`packages/ts-config`', criar um arquivo `react.json`.
 
 **<img src="imgMd/1.8.3react-json.png">**
 
@@ -471,7 +471,7 @@ export const {
 })
 ```
 
-> Agora é só fazer a importação ( `import { styled } from './styles` ) para criar componentes.
+> Agora é só fazer a importação ( `import { styled } from './styles'` ) para criar componentes.
 
 <br/><hr/><br/>
 
@@ -670,4 +670,253 @@ Na pasta '`docs`':
   por para rodar novamente.
 
   - `npm run dev`
+
+<br/><hr/><br/>
+
+### #2.6 Adicionando fonte externa
+
+#### No arquivo '`preview-head.html`', na pasta '`.storybook`' de '`docs`':
+
+**<img src="imgMd/2.6.0preview-headDotStorybookDocs.png">**
+
+```html
+<!-- docs/.storybook/preview-head.html -->
+<link rel="preconnect" href="https://fonts.googleapis.com" /> <!--// <-- -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> <!--// <-- -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" /> <!--// <-- -->
+
+<script>
+  window.global = window;
+</script>
+
+```
+
+<br/><hr/><br/>
+
+### #2.7 Documentação de cores
+
+#### Criar a pasta `pages` na pasta '`src`' de '`docs`':
+
+**<img src="imgMd/2.7.0pagesSrcDocs.png">**
+
+#### e no arquivo '`main.js`' na pasta '`.storybook`' de '`docs`', mudar a rota de 'stories' para 'pages'.
+
+```js
+module.exports = {
+  "stories": [
+    "../src/pages/**/*.stories.mdx", // <--
+    "../src/stories/**/*.stories.tsx"
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions"
+  ],
+  "framework": "@storybook/react",
+  "core": {
+    "builder": "@storybook/builder-vite"
+  },
+  "features": {
+    "storyStoreV7": true
+  }
+}
+```
+
+  - Em '`docs`', parar o Storybook (`Ctrl + C`) e rodar novamente `npm run dev`.
+
+[ Storybook MDX ](https://storybook.js.org/docs/react/api/mdx)
+
+E dentro da pasta '`pages`' criar o arquivo `home.stories.mdx`.
+
+**<img src="imgMd/2.7.1homeStoriesMdx.png">**
+
+```jsx
+/** docs/src/pages/home.stories.mdx */
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Home" />
+
+# Kiérico UI
+
+My Design System
+```
+
+#### Para adicionar o tema Dark na aba Canvas do Storybook
+
+#### No arquivo '`preview.js`' na pasta '`.storybook`' de '`docs`':
+
+**<img src="imgMd/2.7.2preview-jsDotStorybookDocs.png">**
+
+```js
+/** docs/.storybook/preview.js */
+/* importação para adionar o tema dark na página do canvas */
+import { themes } from '@storybook/theming' // <--
+
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+
+  /** theme dark */
+  docs: { // <--
+    theme: themes.dark, // <--
+  }
+}
+```
+
+Se não carregar (alterar) a fonte e a cor, no arquivo '`package.json`' do pacote '`docs`', adicionar nas 'devDependencies':
+
+```json
+"devDependencies": {
+    "@storybook/builder-vite": "^0.3.0", // <-- ("^0.4.2" versão que tava)
+  },
+```
+
+e no pacote '`docs`' rodar:
+
+  - `npm i`
+
+<br />
+
+#### Em '`pages`', na pasta '`src`' da pasta '`docs`', criar uma pasta `tokens`:
+
+**<img src="imgMd/2.7.3tokensPagesSrcDocs.png">**
+
+  E na pasta '`tokens`' de '`pages`' na pasta '`src`' de '`docs`', criar um arquivo `colors.stories.mdx`.
+
+**<img src="imgMd/2.7.4colors-stories-mdxTokensPagesSrcDocs.png">**
+
+```jsx
+/** docs/src/pages/tokens/colors.stories.mdx */
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Tokens/Colors" />
+
+# Colors
+
+Essas são as cores utilizadas no Kiérico UI.
+```
+
+#### Em '`src`' da pasta '`docs`', criar uma pasta '`components`'. E dentro da pasta '`components`' em '`src`' de '`docs`', criar um arquivo `ColorsGrid.tsx`.
+
+**<img src="imgMd/2.7.5ColorsGrid-tsxComponentsSrcDocs.png">**
+
+```tsx
+/** docs/src/components/ColorsGrid.tsx */
+import { colors } from '@kierico-ui/tokens'
+
+export function ColorsGrid() {
+  return Object.entries(colors).map(([key, color]) => {
+    return (
+      <div key={key} style={{ backgroundColor: color, padding: '2rem' }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontFamily: 'monospace',
+            color: '#fff',
+          }}
+        >
+          {/** $ para saber que isso é um token */}
+          <strong>${key}</strong>
+          <span>{color}</span>
+        </div>
+      </div>
+    )
+  })
+}
+```
+
+E no arquivo `colors.stories.mdx` na pasta '`tokens`' em '`pages`' na pasta '`src`' da pasta '`docs`', adicionar:
+
+**<img src="imgMd/2.7.4colors-stories-mdxTokensPagesSrcDocs.png">**
+
+```jsx
+import { Meta } from '@storybook/addon-docs'
+import {ColorsGrid} from '../../components/ColorsGrid' // <--
+
+<Meta title="Tokens/Colors" />
+
+# Colors
+
+Essas são as cores utilizadas no Kiérico UI.
+
+<ColorsGrid /> // <--
+```
+
+No pacote '`docs`':
+
+- `npm i polished`
+
+> Polished, fazer calculos de cores.
+
+No arquivo '`ColorsGrid.tsx`' na pasta '`components`' em '`src`' da pasta '`docs`', importar o 'polished' e fazer o calculo de cores.
+
+**<img src="imgMd/2.7.5ColorsGrid-tsxComponentsSrcDocs.png">**
+
+```tsx
+import { colors } from '@kierico-ui/tokens'
+import { getContrast } from 'polished' // <--
+
+export function ColorsGrid() {
+  return Object.entries(colors).map(([key, color]) => {
+    return (
+      <div key={key} style={{ backgroundColor: color, padding: '2rem' }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontFamily: 'monospace',
+            /** calculo de cores com o Polished */
+            color: getContrast(color, '#fff') < 3.5 ? '#000' : '#fff', // <--
+          }}
+        >
+          <strong>${key}</strong>
+          <span>{color}</span>
+        </div>
+      </div>
+    )
+  })
+}
+```
+
+Para corrigir erro de Typescript no arquivo 'ColorsGrid.tsx', no arquivo '`package.json`' no pacote '`docs`', adicionar:
+
+**<img src="imgMd/2.7.6package-jsonDocs.png">**
+
+```json
+/** docs/package.json */
+"dependencies": {
+  "@kierico-ui/eslint-config": "*",
+  "@kierico-ui/ts-config": "*", // <--
+  "@kierico-ui/react": "*",
+  "@kierico-ui/tokens": "*",
+  "polished": "^4.2.2",
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0"
+}
+```
+
+e no pacote '`docs`' rodar:
+
+  - `npm i`
+
+e ainda no pacote '`docs`', criar um arquivo `tsconfig.json`:
+
+```json
+/** docs/tsconfig.json */
+{
+  "extends": "@kierico-ui/ts-config/react.json",
+  "include": [
+      "src"
+  ],
+  // "exclude": []
+}
+```
+
+<br/><hr/><br/>
 
