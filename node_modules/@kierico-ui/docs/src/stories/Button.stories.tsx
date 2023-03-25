@@ -3,7 +3,7 @@ import { Button, ButtonProps } from '@kierico-ui/react'
 
 /** configuração global do botão */
 export default {
-  title: 'Button',
+  title: 'Form/Button',
   component: Button,
   args: {
     children: 'Enviar',
