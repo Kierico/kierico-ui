@@ -5,6 +5,13 @@ export const AvatarContainer = styled(Avatar.Root, {
   borderRadius: '$full',
   display: 'inline-block',
   overflow: 'hidden',
+})
+
+export const AvatarImage = styled(Avatar.Image, {
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  borderRadius: 'inherit', // herda os valores do Pai (AvatarContainer)
 
   variants: {
     size: {
@@ -22,13 +29,6 @@ export const AvatarContainer = styled(Avatar.Root, {
   defaultVariants: {
     size: 'md',
   },
-})
-
-export const AvatarImage = styled(Avatar.Image, {
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-  borderRadius: 'inherit', // herda os valores do Pai (AvatarContainer)
 })
 
 export const AvatarFallback = styled(Avatar.Fallback, {

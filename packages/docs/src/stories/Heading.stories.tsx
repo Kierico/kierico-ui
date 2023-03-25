@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react'
 import { Heading, HeadingProps } from '@kierico-ui/react'
 
-/** configuração global do botão */
+/** configuração global do cabeçalho */
 export default {
   title: 'Typography/Heading',
   component: Heading,
@@ -10,7 +10,7 @@ export default {
   },
 } as Meta<HeadingProps>
 
-/** exportar uma variação do botão */
+/** exportar uma variação do cabeçalho */
 export const Primary: StoryObj<HeadingProps> = {}
 
 export const CustomTag: StoryObj<HeadingProps> = {

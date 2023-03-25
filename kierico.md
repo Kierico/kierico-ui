@@ -1027,4 +1027,9 @@ Se estiver dando erro na importação:
 
   - `npm i phosphor-react`
 
-  
+### #3.5 - Componente: Button
+
+#### No pacote '`docs`' instalar:
+
+- `npm i phosphor-react`
+

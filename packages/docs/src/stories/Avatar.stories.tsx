@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react'
 import { Avatar, AvatarProps } from '@kierico-ui/react'
 
-/** configuração global do botão */
+/** configuração global do avatar */
 export default {
   title: 'Data display/Avatar',
   component: Avatar,
@@ -11,11 +11,17 @@ export default {
   },
 } as Meta<AvatarProps>
 
-/** exportar uma variação do botão */
+/** exportar uma variação do avatar */
 export const Primary: StoryObj<AvatarProps> = {}
 
 export const WithFallback: StoryObj<AvatarProps> = {
   args: {
     src: undefined,
+  },
+}
+
+export const Small: StoryObj<AvatarProps> = {
+  args: {
+    size: 'sm',
   },
 }

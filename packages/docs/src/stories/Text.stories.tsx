@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react'
 import { Text, TextProps } from '@kierico-ui/react'
 
-/** configuração global do botão */
+/** configuração global do texto */
 export default {
   title: 'Typography/Text',
   component: Text,
@@ -11,7 +11,7 @@ export default {
   },
 } as Meta<TextProps>
 
-/** exportar uma variação do botão */
+/** exportar uma variação do texto */
 export const Primary: StoryObj<TextProps> = {}
 
 export const CustomTag: StoryObj<TextProps> = {

@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react'
 import { Box, BoxProps, Text } from '@kierico-ui/react'
 
-/** configuração global do botão */
+/** configuração global da box */
 export default {
   title: 'Surfaces/Box',
   component: Box,
@@ -10,5 +10,5 @@ export default {
   },
 } as Meta<BoxProps>
 
-/** exportar uma variação do botão */
+/** exportar uma variação da box */
 export const Primary: StoryObj<BoxProps> = {}
