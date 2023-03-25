@@ -920,3 +920,84 @@ e ainda no pacote '`docs`', criar um arquivo `tsconfig.json`:
 
 <br/><hr/><br/>
 
+### #2.9 Configurando TurboRepo
+
+#### Na raiz:
+
+ - `git init`
+
+e criar um arquivo `.gitignore` na raiz:
+
+```ts
+/** .gitignore da raiz */
+node_modules
+dist
+.turbo
+```
+
+na pasta '`docs`' para gerar a pasta `storybook-static`:
+
+  - `npm run build`
+
+e também criar um arquivo `.gitignore` na pasta '`docs`':
+
+```ts
+/** .gitignore da raiz */
+storybook-static
+```
+
+#### Na raiz rodar:
+
+  - `npm i turbo@latest -D`
+
+e ainda na raiz criar um arquivo `turbo.json`.
+
+```json
+{
+  /* schema para o JSON ficar inteligente (autocomplete) */
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "dev": {
+      "cache": false
+    },
+    "build": {
+      "outputs": [
+        "dist/**",
+        "storybook-static/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    }
+  }
+}
+```
+
+e no arquivo arquivo '`package.json`' da raiz, adicionar os 'scripts':
+
+```json
+/** package.json da raiz */
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  /** os scripts de 'dev' execultem em paralelo (juntos). */
+  "scripts": {                          // <---
+    "dev": "turbo run dev --parallel",  // <---
+    "build": "turbo run build"          // <---
+  },
+  "devDependencies": {
+    "turbo": "^1.8.5"
+  }
+}
+```
+
+Na raiz, para rodar todos os scripts 'dev', execulte:
+
+  - `npm run build`
+
+  - `npm run dev`
+
+<br/><hr/><br/>
+
