@@ -1001,3 +1001,7 @@ Na raiz, para rodar todos os scripts 'dev', execulte:
 
 <br/><hr/><br/>
 
+## #3 Componentes do Design System
+
+  - `npm run dev`
+
