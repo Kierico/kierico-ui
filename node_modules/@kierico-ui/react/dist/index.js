@@ -38,6 +38,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var src_exports = {};
 __export(src_exports, {
   Box: () => Box,
+  Heading: () => Heading,
   Text: () => Text
 });
 module.exports = __toCommonJS(src_exports);
@@ -207,8 +208,32 @@ var Text = styled("p", {
     size: "md"
   }
 });
+
+// src/components/Heading.tsx
+var Heading = styled("h2", {
+  fontFamily: "$default",
+  lineHeight: "$shorter",
+  margin: 0,
+  color: "$gray_100",
+  variants: {
+    size: {
+      sm: { fontSize: "$xl" },
+      md: { fontSize: "$2xl" },
+      lg: { fontSize: "$3xl" },
+      xl: { fontSize: "$4xl" },
+      "2xl": { fontSize: "$5xl" },
+      "4xl": { fontSize: "$6xl" },
+      "5xl": { fontSize: "$7xl" },
+      "6xl": { fontSize: "$8xl" }
+    }
+  },
+  defaultVariants: {
+    size: "md"
+  }
+});
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Box,
+  Heading,
   Text
 });

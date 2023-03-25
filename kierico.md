@@ -1005,3 +1005,15 @@ Na raiz, para rodar todos os scripts 'dev', execulte:
 
   - `npm run dev`
 
+### #3.3 Componente: Heading
+
+Se estiver dando erro na importação:
+
+  - limpar o cache, excluindo as pastas 'dist' e a pasta 'storybook' que esta dentro da pasta 'cache' que esta dentro da pasta 'node_module' da pasta 'docs'.
+
+- `npm i`
+
+- `npm run dev`
+
+- no VSCode `Ctrl + P` e roda `>reload windows` || TypeScript: Restart TS server.
+
