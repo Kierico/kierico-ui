@@ -1017,3 +1017,14 @@ Se estiver dando erro na importação:
 
 - no VSCode `Ctrl + P` e roda `>reload windows` || TypeScript: Restart TS server.
 
+### #3.4 - Componente: Avatar
+
+[Radix](https://www.radix-ui.com/docs/primitives/components/avatar)
+
+#### No pacote '`react`' instalar:
+
+  - `npm install @radix-ui/react-avatar`
+
+  - `npm i phosphor-react`
+
+  

@@ -206,7 +206,63 @@ var Heading = styled("h2", {
     size: "md"
   }
 });
+
+// src/components/Avatar/index.tsx
+import { User } from "phosphor-react";
+
+// src/components/Avatar/styles.ts
+import * as Avatar from "@radix-ui/react-avatar";
+var AvatarContainer = styled(Avatar.Root, {
+  borderRadius: "$full",
+  display: "inline-block",
+  overflow: "hidden",
+  variants: {
+    size: {
+      sm: {
+        width: "$10",
+        height: "$10"
+      },
+      md: {
+        width: "$12",
+        height: "$12"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md"
+  }
+});
+var AvatarImage = styled(Avatar.Image, {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  borderRadius: "inherit"
+  // herda os valores do Pai (AvatarContainer)
+});
+var AvatarFallback = styled(Avatar.Fallback, {
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  alignContent: "center",
+  justifyContent: "center",
+  backgroundColor: "$gray_600",
+  color: "$gray_800",
+  svg: {
+    width: "$6",
+    height: "$6"
+  }
+});
+
+// src/components/Avatar/index.tsx
+import { jsx, jsxs } from "react/jsx-runtime";
+function Avatar2(props) {
+  return /* @__PURE__ */ jsxs(AvatarContainer, { children: [
+    /* @__PURE__ */ jsx(AvatarImage, __spreadValues({}, props)),
+    /* @__PURE__ */ jsx(AvatarFallback, { delayMs: 600, children: /* @__PURE__ */ jsx(User, {}) })
+  ] });
+}
 export {
+  Avatar2 as Avatar,
   Box,
   Heading,
   Text
