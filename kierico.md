@@ -1033,3 +1033,13 @@ Se estiver dando erro na importação:
 
 - `npm i phosphor-react`
 
+### #3.7 - Componente: TextArea
+
+#### Se der erro de importação '@kierico-ui/react', é só parar o terminal (Ctrl + C) e rodar 'npm run dev' novamente.
+
+### #3.8 - Componente: Checkbox
+
+[Radix](https://www.radix-ui.com/docs/primitives/components/avatar)
+
+  - `npm install @radix-ui/react-checkbox`
+
