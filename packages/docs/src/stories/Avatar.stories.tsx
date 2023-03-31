@@ -9,6 +9,13 @@ export default {
     src: 'https://github.com/Kierico.png',
     alt: 'Kiérico Souza',
   },
+  argTypes: {
+    src: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 } as Meta<AvatarProps>
 
 /** exportar uma variação do avatar */

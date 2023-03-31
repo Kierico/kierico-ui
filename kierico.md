@@ -1043,3 +1043,11 @@ Se estiver dando erro na importação:
 
   - `npm install @radix-ui/react-checkbox`
 
+<br/><hr/><br/>
+
+## #4 Melhorias no Storybook
+
+### #4.3 Controles nos componentes
+
+[ArgTypes](https://storybook.js.org/docs/react/api/argtypes)
+

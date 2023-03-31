@@ -208,12 +208,12 @@ var Heading = styled("h2", {
     size: {
       sm: { fontSize: "$xl" },
       md: { fontSize: "$2xl" },
-      lg: { fontSize: "$3xl" },
-      xl: { fontSize: "$4xl" },
-      "2xl": { fontSize: "$5xl" },
-      "4xl": { fontSize: "$6xl" },
-      "5xl": { fontSize: "$7xl" },
-      "6xl": { fontSize: "$8xl" }
+      lg: { fontSize: "$4xl" },
+      xl: { fontSize: "$5xl" },
+      "2xl": { fontSize: "$6xl" },
+      "4xl": { fontSize: "$7xl" },
+      "5xl": { fontSize: "$8xl" },
+      "6xl": { fontSize: "$9xl" }
     }
   },
   defaultVariants: {
