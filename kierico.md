@@ -1051,3 +1051,38 @@ Se estiver dando erro na importação:
 
 [ArgTypes](https://storybook.js.org/docs/react/api/argtypes)
 
+### #4.4 Addon de acessibilidade
+
+[storybook-addon-a11y](https://storybook.js.org/addons/@storybook/addon-a11y)
+
+No pacote '`docs`':
+
+  - `npm install @storybook/addon-a11y`
+
+E, adiciona, no arquivo '`main.js`', na pasta '`.storybook`' da pasta '`docs`':
+
+```js
+/** docs/.storybook/main.js */
+module.exports = {
+  "stories": [
+    "../src/pages/**/*.stories.mdx",
+    "../src/stories/**/*.stories.tsx"
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-a11y" // <---
+  ],
+  "framework": "@storybook/react",
+  "core": {
+    "builder": "@storybook/builder-vite"
+  },
+  "features": {
+    "storyStoreV7": true
+  }
+}
+```
+
+Parar o server `Ctrl + C` e rodar novamente `npm run dev`.
+
