@@ -1086,3 +1086,73 @@ module.exports = {
 
 Parar o server `Ctrl + C` e rodar novamente `npm run dev`.
 
+<br/><hr/><br/>
+
+## #5 Publicação e Manutenção
+
+### #5.1 Publicando Storybook
+
+[Storybook Deployer](https://github.com/storybook-eol/storybook-deployer)
+
+No pacote '`docs`', instalar:
+
+  - `npm i @storybook/storybook-deployer --save-dev`
+
+No arquivo '`package.json`' da pasta `docs`, adicionar no "scripts":
+
+```json
+/** docs/package.json */
+{
+  "name": "@kierico-ui/docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "start-storybook -p 6006",
+    "deploy-storybook": "storybook-to-ghpages", // <---
+    "build": "build-storybook"
+  },
+  ...
+}
+```
+
+#### Criar uma pasta '`.github`' na raiz, detro dela criar outra pasta '`workflows`' e dentro de 'workflows' um arquivo '`deploy-docs.yml`'.
+
+[Actions Checkout V3](https://github.com/actions/checkout)
+
+```yml
+# .github/workflows/deploy-docs.yml
+name: Deploy docs
+
+on: 
+  push:
+    branches: 
+      - main
+
+jobs: 
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 16
+      
+      - run: npm ci
+
+      - run: npm run build # configuração do turbo repo.
+
+      - name: Deploy storybook
+        working-directory: ./packages/docs # entrar na pasta packages/docs.
+        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static # pasta que vai ter o projeto.
+        env: 
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+
+```
+
+Fazer um commit: `Add docs workflow`
+
