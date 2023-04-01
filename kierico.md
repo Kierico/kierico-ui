@@ -1156,5 +1156,40 @@ jobs:
 
 Fazer um commit: `ci: Add docs workflow` na branch '`main`'.
 
+OBS: se der erro, na 'run workflow' da action do github, tera que marcar a opção da imagem abaixo, que estara em 'Settings/General/Workflow permissions'
+
+**<img src="imgMd/5.1.0workflowPermissions-actions.png">**
+
 [TurboRepo Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+
+#### No arquivo `main.js` da pasta `.storybook` na pasta `docs`, add:
+
+```js
+/** docs/.storybook/main.js */
+module.exports = {
+  "stories": [
+    "../src/pages/**/*.stories.mdx",
+    "../src/stories/**/*.stories.tsx"
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-a11y"
+  ],
+  "framework": "@storybook/react",
+  "core": {
+    "builder": "@storybook/builder-vite"
+  },
+  "features": {
+    "storyStoreV7": true
+  },
+  viteFinal: (config, { configType }) => { // <---
+    if (configType === 'PRODUCTION') {     // <---
+      config.base = 'kierico-ui'           // <---
+    }                                      // <---
+    return config                          // <---
+  }
+}
+```
 
