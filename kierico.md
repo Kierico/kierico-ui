@@ -1154,5 +1154,5 @@ jobs:
 
 ```
 
-Fazer um commit: `Add docs workflow`
+Fazer um commit: `ci: Add docs workflow`
 
