@@ -1193,3 +1193,11 @@ module.exports = {
 }
 ```
 
+```js
+/**
+Commits válidos da aula 5.1 - Publicando Storybook:
+  - ci: Add docs workflow - update    <e3cd265>
+  - fix: Add subpath to Storybook on production    <dada9bf>
+*/
+
+```
