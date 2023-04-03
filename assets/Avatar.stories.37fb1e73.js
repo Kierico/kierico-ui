@@ -1,0 +1,2 @@
+import{A as t}from"./index.c4dedbbb.js";import"./index.33d57656.js";import"./iframe.d95ca6f5.js";import"./index.7078d6fe.js";import"./jsx-runtime.23667624.js";const c={title:"Data display/Avatar",component:t,args:{src:"https://github.com/Kierico.png",alt:"Ki\xE9rico Souza"},argTypes:{src:{control:{type:"text"}}}},m={},l={args:{src:void 0}},p={args:{size:"sm"}},e=["Primary","WithFallback","Small"];export{m as Primary,p as Small,l as WithFallback,e as __namedExportsOrder,c as default};
+//# sourceMappingURL=Avatar.stories.37fb1e73.js.map
