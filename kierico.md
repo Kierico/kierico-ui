@@ -1295,3 +1295,52 @@ Publicar o pacote:
 
   - `npm run release`
 
+### #5.3 Cache na Github Actions
+
+[Vercel: Monorepos/Remote Caching/Use Remore Caching from CI/CD](https://vercel.com/docs/concepts/monorepos/remote-caching#use-remote-caching-from-external-ci/cd)
+
+Criar um 'token'.
+
+No arquivo `deploy-docs.yml`, add:
+
+```yml
+# .github/workflows/deploy-docs.yml
+name: Deploy docs
+
+on: 
+  push:
+    branches: 
+      - main
+
+jobs: 
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 16
+          cache: 'npm'    # <---
+          cache-dependency-path: '**/package-lock.json'    # <---
+      
+      - run: npm ci
+
+      - run: npm run build
+      env: 
+        TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}    # <---
+        TURBO_TEAM: kierico    # <---
+
+      - name: Deploy storybook
+        working-directory: ./packages/docs
+        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
+        env: 
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+```
+
+Agora é só publicar fazendo um 'commit' no github.
+
+  "ci: Add TurboRepo cache on deploy build", "ci: Add NPM cache" ou "ci: Use secret as vercel token".
+
