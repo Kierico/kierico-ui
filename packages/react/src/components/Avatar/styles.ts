@@ -23,11 +23,15 @@ export const AvatarImage = styled(Avatar.Image, {
         width: '$12',
         height: '$12',
       },
+      lg: {
+        width: '$16',
+        height: '$16',
+      },
     },
   },
 
   defaultVariants: {
-    size: 'md',
+    size: 'lg',
   },
 })
 

@@ -1423,3 +1423,17 @@ Rodar na raiz:
 
 E agora é só fazer um 'commit' para o github "chore: Add new test colors to tokens".
 
+### #5.5 Ajustes no Design System
+
+Depois dos ajustes publicar novamente:
+
+  - `npm run changeset`
+
+  **<img src="imgMd/5.5.0changesetEnter.png">**
+
+    OBS: 'Enter' vai mudando de 'Major', 'Minor' e 'Patch'.
+
+  - `npm run version-packages`
+
+  - e finalizar realizando um commit no github "fix: Add ref to TextInput and adjust styles".
+
