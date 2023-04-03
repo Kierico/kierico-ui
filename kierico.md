@@ -1201,3 +1201,97 @@ Commits válidos da aula 5.1 - Publicando Storybook:
 */
 
 ```
+
+### #5.2 Configurando Changesets
+
+[TurboRepo: Publishing Packages - Versioning and Publishing](https://turbo.build/repo/docs/handbook/publishing-packages/versioning-and-publishing)
+
+[@changesets/cli 🦋](https://github.com/changesets/changesets/blob/main/packages/cli/README.md)
+
+#### Na raiz, install:
+
+  - `npm i @changesets/cli -D`
+
+  rodar:
+
+  - `npx changeset init`
+
+Add no arquivo `config.json` da pasta `.changeset` que esta na raiz, alterar o access:
+
+```json
+/** Na raiz: .changeset/config.json */
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [],
+  "linked": [],
+  "access": "public", // <---
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": ["@kierico-ui/docs"] // pacote que não vai ser publicado no 'npm', e não monitorado pelo 'changeset'.
+}
+
+```
+
+E no arquivo `package.json` da raiz, adicionar em 'scripts':
+
+```json
+/** package.json da raiz */
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "changeset": "changeset",    // <---
+    "version-packages": "changeset version",    // <---
+    /** O sinal '!' na frente de 'docs' é para evitar rodar a build no pacote 'docs'. */
+    "release": "turbo run build --filter=!docs && changeset publish"    // <---
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.1",
+    "turbo": "^1.8.5"
+  }
+}
+```
+
+Criar uma conta no NPM, e criar uma organização (kierico-ui "esse nome é único").
+
+No arquivo `package.json` da pasta `eslint-config`, add a 'version': 
+
+```json
+/** eslint-config/package.json */
+{
+  "name": "@kierico-ui/eslint-config",
+  "version": "1.0.0",    // <---
+  "license": "MIT",
+  "private": true,
+  "main": "index.js",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^1.2.0",
+    "eslint": "^8.35.0"
+  }
+}
+```
+
+  rodar:
+
+    - `npm run changeset` , comdando rodado por qualquer pessoa que esta mantendo (fazendo alterações) o repositório.
+
+**<img src="imgMd/5.2.0changeset.png">**
+
+**<img src="imgMd/5.2.1bump.png">**
+
+**<img src="imgMd/5.2.2summary.png">**
+
+**<img src="imgMd/5.2.3desired-changeset.png">**
+
+  - `npm run version-packages`
+
+Publicar o pacote:
+
+  - `npm run release`
+
