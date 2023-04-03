@@ -49,6 +49,8 @@ export const colors = {
   new_light: '#1EF7D0',
   new_base: '#07847E',
   new_low: '#163840',
+
+  cor_teste: '#c3c3c4',
 }
 
 /** https://andromeda.rocketseat.dev/?path=/docs/docs-colors--page */

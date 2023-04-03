@@ -1299,7 +1299,7 @@ Publicar o pacote:
 
 [Vercel: Monorepos/Remote Caching/Use Remore Caching from CI/CD](https://vercel.com/docs/concepts/monorepos/remote-caching#use-remote-caching-from-external-ci/cd)
 
-Criar um 'token'.
+Criar um 'token' na Vercel. E no github criar um 'Secrets/Actions' ${{ secrets.VERCEL_TOKEN }}
 
 No arquivo `deploy-docs.yml`, add:
 
@@ -1344,4 +1344,82 @@ Agora é só publicar fazendo um 'commit' no github.
 
   "ci: Add TurboRepo cache on deploy build", "ci: Add NPM cache" ou "ci: Use secret as vercel token".
 
-### Teste de commit
+### #5.4 CI/CD dos pacotes NPM
+
+[Changesets GitHub Action](https://github.com/changesets/action#with-publishing)
+
+Criar um arquivo '`release.yml`' na pasta `workflows` que esta na pasta `.github`:
+
+```yml
+# .github/workflows/release.yml
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+      
+      - run: npm ci
+          
+      - name: Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          publish: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          TURBO_TEAM: kierico
+
+      # - name: Send a Slack notification if a publish happens
+      #   if: steps.changesets.outputs.published == 'true'
+      #   # You can do something when a publish happens.
+      #   run: my-slack-bot send-notification --message "A new version of ${GITHUB_REPOSITORY} was published!"
+```
+
+Criar um 'token' na NPM. E no github criar um 'Secrets/Actions' ${{ secrets.NPM_TOKEN }}
+
+E para publicar novamente, precisa criar um novo 'chageset', alterando algum arquivo em algum pacote, se não, não publicara nada.
+
+  - No pacote 'tokens' adicionarei uma nova cor teste.
+
+  - `npm run changeset`
+
+    summary >> "Add new test color"
+
+  Na pasta `.changeset` no arquivo (breezy-months-sell.md) gerado após rodar o camando `npm run changeset`, alterar de 'major' para 'minor'.
+
+```md
+<!-- .changeset/breezy-months-sell.md -->
+---
+"@kierico-ui/tokens": minor
+---
+
+Add new test color
+```
+
+Rodar na raiz:
+
+  - `npm run version-packages`
+
+E agora é só fazer um 'commit' para o github "chore: Add new test colors to tokens".
+
